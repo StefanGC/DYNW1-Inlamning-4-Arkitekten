@@ -1,0 +1,30 @@
+﻿
+@{
+    ViewData["Title"] = "Category Menu";
+}
+
+@model IEnumerable<Category>
+
+<li class="nav-item dropdown">
+    <a asp-controller="Product"
+       asp-action="Index"
+       class="nav-link text-dark dropdown-toggle" data-toggle="dropdown">Produkter<b class="caret"></b></a>
+    <ul class="dropdown-menu">
+        @foreach (var category in Model)
+        {
+            <li class="nav-item">
+                <a class="nav-link text-dark"
+                   asp-controller="Product" 
+                   asp-action="List"
+                   asp-route-category="@category.CategoryName">@category.CategoryName</a>
+            </li>
+        }
+        <li class="divider"></li>
+        <li class="nav-item">
+            <a class="nav-link text-dark"
+               asp-controller="Product" 
+               asp-action="List" 
+               asp-route-Category="">Visa alla produkter</a>
+        </li>
+    </ul>
+</li>

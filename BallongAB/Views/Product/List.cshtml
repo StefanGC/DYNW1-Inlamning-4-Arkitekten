@@ -1,0 +1,19 @@
+﻿@{
+    ViewData["Title"] = "Produkter";
+}
+
+@model ProductListViewModel
+
+<div class="row">
+    <div class="col-md-12">
+        <h1>@Model.CurrentCategory</h1>
+    </div>
+    
+    @foreach (var product in Model.Products)
+    {
+        <partial name="_ProductCart" model="product" />
+    }
+</div>
+
+
+
