@@ -36,10 +36,11 @@ namespace BallongAB.Models
                 };
 
                 order.OrderDetails.Add(orderDetail);
+                //order.ProjectId = 1;
             }
 
             _appDbContext.Orders.Add(order);
-
+            //_appDbContext.Projects.FirstOrDefault(p => p.ProjectId == 1).Orders.Add(order);
             _appDbContext.SaveChanges();
         }
     }

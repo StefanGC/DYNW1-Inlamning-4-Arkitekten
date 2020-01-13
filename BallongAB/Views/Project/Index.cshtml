@@ -1,0 +1,38 @@
+﻿
+@{
+    ViewData["Title"] = "Alla Projekter";
+}
+
+@model ProjectListViewModel
+
+<div class="row">
+    <div class="col-md-12">
+        <h2>Dina projekter</h2>
+
+        @foreach (var project in Model.Projects)
+        {
+            <h4>project.Name</h4>
+
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>Order Id</th>
+                        <th class="text-right">Pris</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var line in project.Orders)
+                    {
+                        <tr>
+                            <td class="text-center">@line.OrderId</td>
+                            <td class="text-left">@line.OrderTotal</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+
+        }
+
+    </div>
+</div>
+

@@ -34,7 +34,7 @@ namespace BallongAB.Controllers
 
             if (_shoppingCart.ShoppingCartItems.Count == 0)
             {
-                ModelState.AddModelError("", "Your cart is empty, add some pies first");
+                ModelState.AddModelError("", "Din varukorg är tom, lägg till några pajer först");
             }
 
             if (ModelState.IsValid)
@@ -48,7 +48,7 @@ namespace BallongAB.Controllers
 
         public IActionResult CheckoutComplete()
         {
-            ViewBag.CheckoutCompleteMessage = "Thanks for your order. You'll soon enjoy our delicious pies!";
+            ViewBag.CheckoutCompleteMessage = "Tack för din beställning.";
             return View();
         }
     }

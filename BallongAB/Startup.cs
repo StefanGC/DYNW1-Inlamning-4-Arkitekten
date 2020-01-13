@@ -36,6 +36,7 @@ namespace BallongAB
 
             services.AddScoped<IOrderRepository, OrderRepository>();
             services.AddScoped<ShoppingCart>(sp => ShoppingCart.GetCart(sp));
+            services.AddScoped<IProjectRepository, ProjectRepository>();
 
             services.AddHttpContextAccessor();
             services.AddSession();

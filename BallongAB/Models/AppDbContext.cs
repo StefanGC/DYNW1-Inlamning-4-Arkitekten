@@ -19,6 +19,7 @@ namespace BallongAB.Models
         public DbSet<ShoppingCartItem> ShoppingCartItems { get; set; }
         public DbSet<Order> Orders { get; set; }
         public DbSet<OrderDetail> OrderDetails { get; set; }
+        public DbSet<Project> Projects { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -147,6 +148,17 @@ namespace BallongAB.Models
                 InStock = false,
                 ImageThumbnailUrl = "https://gillcleerenpluralsight.blob.core.windows.net/files/peachpiesmall.jpg"
             });
+
+
+            //seed project
+            /*
+            modelBuilder.Entity<Project>().HasData(new Project
+            {
+                ProjectId = 1,
+                Name = "Stefan",
+                Orders = new List<Order>()
+            });
+            */
         }
     }
 }
