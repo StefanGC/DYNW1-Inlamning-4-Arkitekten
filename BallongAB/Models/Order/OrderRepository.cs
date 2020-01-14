@@ -36,12 +36,18 @@ namespace BallongAB.Models
                 };
 
                 order.OrderDetails.Add(orderDetail);
-                //order.ProjectId = 1;
             }
-
+            order.ProjectId = 1;
             _appDbContext.Orders.Add(order);
-            //_appDbContext.Projects.FirstOrDefault(p => p.ProjectId == 1).Orders.Add(order);
+            if(_appDbContext.Projects.FirstOrDefault(p => p.ProjectId == 1) != null)
+                _appDbContext.Projects.FirstOrDefault(p => p.ProjectId == 1).Orders.Add(order);
             _appDbContext.SaveChanges();
+        }
+
+
+        public IEnumerable<Order> GetOrderByPorjectId(int projectId)
+        {
+            return _appDbContext.Orders.Where(o => o.ProjectId == projectId);
         }
     }
 }

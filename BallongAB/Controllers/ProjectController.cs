@@ -13,18 +13,22 @@ namespace BallongAB.Controllers
     public class ProjectController : Controller
     {
         private readonly IProjectRepository _projectRepository;
+        private readonly IOrderRepository _orderRepository;
         public int ProjectId { get; set; }
         public List<Order> Orders { get; set; }
-        public ProjectController(IProjectRepository projectRepository)
+        public ProjectController(IProjectRepository projectRepository, IOrderRepository orderRepository)
         {
             _projectRepository = projectRepository;
+            _orderRepository = orderRepository;
         }
-        public IActionResult Index()
+        public IActionResult Index(int projectId)
         {
             ProjectListViewModel projectListViewModel = new ProjectListViewModel()
             {
-                Projects = _projectRepository.AllProjects
-        };
+                Projects = _projectRepository.AllProjects,
+                Project  = _projectRepository.GetProjectById(1),
+                Orders   = _orderRepository.GetOrderByPorjectId(1).ToList()
+            };
 
             return View(projectListViewModel);
         }

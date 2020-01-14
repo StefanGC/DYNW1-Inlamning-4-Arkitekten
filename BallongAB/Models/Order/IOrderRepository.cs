@@ -8,5 +8,6 @@ namespace BallongAB.Models
     public interface IOrderRepository
     {
         void CreateOrder(Order order);
+        public IEnumerable<Order> GetOrderByPorjectId(int orderId);
     }
 }

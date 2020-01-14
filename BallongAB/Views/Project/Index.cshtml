@@ -11,7 +11,7 @@
 
         @foreach (var project in Model.Projects)
         {
-            <h4>project.Name</h4>
+            <h4>Projekt Namn: @project.Name</h4>
 
             <table class="table table-bordered table-striped">
                 <thead>
@@ -21,13 +21,17 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach (var line in project.Orders)
+                    @if (Model.Orders.Count > 0)
                     {
-                        <tr>
-                            <td class="text-center">@line.OrderId</td>
-                            <td class="text-left">@line.OrderTotal</td>
-                        </tr>
+                        @foreach (var line in Model.Orders)
+                        {
+                            <tr>
+                                <td class="text-center">@line.OrderId</td>
+                                <td class="text-left">@line.OrderTotal</td>
+                            </tr>
+                        }
                     }
+
                 </tbody>
             </table>
 

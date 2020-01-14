@@ -151,14 +151,14 @@ namespace BallongAB.Models
 
 
             //seed project
-            /*
+            
             modelBuilder.Entity<Project>().HasData(new Project
             {
                 ProjectId = 1,
-                Name = "Stefan",
+                Name = "Default project",
                 Orders = new List<Order>()
             });
-            */
+            
         }
     }
 }
